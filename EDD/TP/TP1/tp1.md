@@ -136,9 +136,36 @@ a  b  c   <-- classified as
 
 #### k-NN
 
+weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+
+Correctly Classified Instances         136              100      %
+Incorrectly Classified Instances         0                0      %
+
+a  b  c   <-- classified as
+77  0  0 |  a = South
+0 24  0 |  b = Sardinia
+0  0 35 |  c = North
+
 #### C4.5
 
+Correctly Classified Instances         135               99.2647 %
+Incorrectly Classified Instances         1                0.7353 %
+
+  a  b  c   <-- classified as
+ 77  0  0 |  a = South
+  0 24  0 |  b = Sardinia
+  0  1 34 |  c = North
+
+![Image](olive_region_j48.png)
 #### SVMs
+
+Correctly Classified Instances          78               57.3529 %
+Incorrectly Classified Instances        58               42.6471 %
+
+a  b  c   <-- classified as
+77  0  0 |  a = South
+24  0  0 |  b = Sardinia
+34  0  1 |  c = North
 
 ### Segment
 #### Naive Bayes
