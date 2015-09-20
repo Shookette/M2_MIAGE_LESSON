@@ -58,14 +58,81 @@ Vous trouverez ci-dessous la matrice de confusion.
 ### Olive (Zone)
 #### Naive Bayes
 
+Correctly Classified Instances         130               95.5882 %
+Incorrectly Classified Instances         6                4.4118 %
+
+  a  b  c  d  e  f  g  h  i   <-- classified as
+  5  0  0  1  0  0  0  0  0 |  a = North-Apulia
+  0 12  2  0  0  0  0  0  0 |  b = Calabria
+  0  0 47  1  0  0  0  0  0 |  c = South-Apulia
+  0  1  0  8  0  0  0  0  0 |  d = Sicily
+  0  0  0  0 16  0  0  0  0 |  e = Inland-Sardinia
+  0  0  0  0  0  8  0  0  0 |  f = Coast-Sardinia
+  0  0  0  0  0  0 11  0  1 |  g = East-Liguria
+  0  0  0  0  0  0  0 12  0 |  h = West-Liguria
+  0  0  0  0  0  0  0  0 11 |  i = Umbria
 #### k-NN
+
+Correctly Classified Instances         130               95.5882 %
+Incorrectly Classified Instances         6                4.4118 %
+
+à partir de K >= diminution progressive du % correct
+
+  a  b  c  d  e  f  g  h  i   <-- classified as
+  5  0  0  1  0  0  0  0  0 |  a = North-Apulia
+  0 12  2  0  0  0  0  0  0 |  b = Calabria
+  0  0 48  0  0  0  0  0  0 |  c = South-Apulia
+  0  0  2  7  0  0  0  0  0 |  d = Sicily
+  0  0  0  0 16  0  0  0  0 |  e = Inland-Sardinia
+  0  0  0  0  0  8  0  0  0 |  f = Coast-Sardinia
+  0  0  0  0  0  0 11  0  1 |  g = East-Liguria
+  0  0  0  0  0  0  0 12  0 |  h = West-Liguria
+  0  0  0  0  0  0  0  0 11 |  i = Umbria
 
 #### C4.5
 
+Correctly Classified Instances         119               87.5    %
+Incorrectly Classified Instances        17               12.5    %
+
+a  b  c  d  e  f  g  h  i   <-- classified as
+4  0  1  1  0  0  0  0  0 |  a = North-Apulia
+0  8  3  3  0  0  0  0  0 |  b = Calabria
+0  0 47  1  0  0  0  0  0 |  c = South-Apulia
+0  1  3  5  0  0  0  0  0 |  d = Sicily
+0  0  0  0 15  1  0  0  0 |  e = Inland-Sardinia
+0  0  0  0  0  8  0  0  0 |  f = Coast-Sardinia
+0  0  0  0  0  0 10  1  1 |  g = East-Liguria
+0  0  0  0  1  0  0 11  0 |  h = West-Liguria
+0  0  0  0  0  0  0  0 11 |  i = Umbria
+
+![Image](olive_area_j48.png)
+
 #### SVMs
+
+Correctly Classified Instances          49               36.0294 %
+Incorrectly Classified Instances        87               63.9706 %
+
+a  b  c  d  e  f  g  h  i   <-- classified as
+0  0  6  0  0  0  0  0  0 |  a = North-Apulia
+0  0 14  0  0  0  0  0  0 |  b = Calabria
+0  0 48  0  0  0  0  0  0 |  c = South-Apulia
+0  0  9  0  0  0  0  0  0 |  d = Sicily
+0  0 16  0  0  0  0  0  0 |  e = Inland-Sardinia
+0  0  8  0  0  0  0  0  0 |  f = Coast-Sardinia
+0  0 12  0  0  0  0  0  0 |  g = East-Liguria
+0  0 12  0  0  0  0  0  0 |  h = West-Liguria
+0  0 10  0  0  0  0  0  1 |  i = Umbria
 
 ### Olive (Région)
 #### Naive Bayes
+
+Correctly Classified Instances         135               99.2647 %
+Incorrectly Classified Instances         1                0.7353 %
+
+a  b  c   <-- classified as
+77  0  0 |  a = South
+0 23  1 |  b = Sardinia
+0  0 35 |  c = North
 
 #### k-NN
 
