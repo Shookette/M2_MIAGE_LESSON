@@ -8,7 +8,7 @@ Avec cet algorithme, nous remarquons que les types d'Iris peuvent être suffisam
 
 On nous indique plus précisément que dans 95.3% des cas (soit 7 erreurs), Naive Bayes classifie correctement les iris.
 
-Vous trouverez ci-dessous un détail des prédictions (sachant que chaque espéce était représentée 50 fois).
+Vous trouverez ci-dessous un détail des prédictions (sachant que chaque espèce était représentée 50 fois).
 
 | | Setosa | Versicolor | Virginica |
 |---|---|---|---|
@@ -31,6 +31,8 @@ Cet algorithme nous permet de décrire la classification des espèces d'iris gr�
 
 ![Image](Iris-C4.5.png)
 
+Nous observons sur l'arbre de décision que l'algorithme sépare d'abord les iris Setosa des deux autres espèces par la largeur de leurs pétales puis qu'il sépare ensuite les deux espèces par la largeur et la longueur de leur pétales.
+
 Concernant le taux de bonne classification, il est égal aux autres à 95,3%.  
 Vous trouverez ci-dessous la matrice de confusion.
 
@@ -43,6 +45,8 @@ Vous trouverez ci-dessous la matrice de confusion.
 On remarque ici qu'un Setosa a été confondu pour un Versicolor alors qu'avec tous les autres algorithmes, nous ne trouvons aucune confusion concernant cette espèce.
 
 #### SVMs :
+Pour cet algorithme, nous utiliserons à chaque fois dans Weka la fonction libSVM.
+
 Avec cette algorithme, nous obtenons le meilleur pourcentage de bonne classification avec 97,3% (soit 4 erreurs).
 
 Voici la formule utilisée pour cet algorithme : weka.classifiers.functions.LibSVM -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1
@@ -56,116 +60,109 @@ Vous trouverez ci-dessous la matrice de confusion.
 | Virginica | 0 | 1 | 49 |
 
 ### Olive (Zone)
+Nous allons d'abord essayer de classer les huiles dans les 9 zones différentes.
+
 #### Naive Bayes
+Avec la classification Naive Bayes, nous obtenons une classification des éléments correcte à 95,58% (soit 6 erreurs).  
 
-Correctly Classified Instances         130               95.5882 %
-Incorrectly Classified Instances         6                4.4118 %
+Voici la formule utilisée pour trouver ce résulat :  
 
-  a  b  c  d  e  f  g  h  i   <-- classified as
-  5  0  0  1  0  0  0  0  0 |  a = North-Apulia
-  0 12  2  0  0  0  0  0  0 |  b = Calabria
-  0  0 47  1  0  0  0  0  0 |  c = South-Apulia
-  0  1  0  8  0  0  0  0  0 |  d = Sicily
-  0  0  0  0 16  0  0  0  0 |  e = Inland-Sardinia
-  0  0  0  0  0  8  0  0  0 |  f = Coast-Sardinia
-  0  0  0  0  0  0 11  0  1 |  g = East-Liguria
-  0  0  0  0  0  0  0 12  0 |  h = West-Liguria
-  0  0  0  0  0  0  0  0 11 |  i = Umbria
+
+Ci-dessous vous trouverez la matrice de confusion.
+
+| | North-Apulia | Calabria | South-Apulia | Sicily | Inland-Sardinia | Coast-Sardinia | East-Liguria | West-Liguria | Umbria |
+|---|---|---|---|---|---|---|---|---|---|
+| North-Apulia | 5 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| Calabria | 0 | 12 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
+| South-Apulia | 0 | 0 | 47 | 1 | 0 | 0 | 0 | 0 | 0 |
+| Sicily | 0 | 1 | 0 | 8 | 0 | 0 | 0 | 0 | 0 |
+| Inland-Sardinia | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 0 | 0 |
+| Coast-Sardinia | 0 | 0 | 0 | 0 | 0 | 8 | 0 | 0 | 0 |
+| East-Liguria | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 0 | 1 |
+| West-Liguria | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 12 | 0 |
+| Umbria | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 11 |
+
+
 #### k-NN
+Avec l'algorithme des plus proches voisins, nous trouvons le même taux de bonne classification que précedemment, soit 95,58% (soit 6 erreurs) pour k=1 ou k=3. Cependant, si k est supérieur ou égal à 5, le taux de bonne classification diminue au fur et à mesure que k augmente.
 
-Correctly Classified Instances         130               95.5882 %
-Incorrectly Classified Instances         6                4.4118 %
+Voici ci-dessous la formule qui nous a permis d'obtenir le meilleur résultat :  
 
-à partir de K >= diminution progressive du % correct
 
-  a  b  c  d  e  f  g  h  i   <-- classified as
-  5  0  0  1  0  0  0  0  0 |  a = North-Apulia
-  0 12  2  0  0  0  0  0  0 |  b = Calabria
-  0  0 48  0  0  0  0  0  0 |  c = South-Apulia
-  0  0  2  7  0  0  0  0  0 |  d = Sicily
-  0  0  0  0 16  0  0  0  0 |  e = Inland-Sardinia
-  0  0  0  0  0  8  0  0  0 |  f = Coast-Sardinia
-  0  0  0  0  0  0 11  0  1 |  g = East-Liguria
-  0  0  0  0  0  0  0 12  0 |  h = West-Liguria
-  0  0  0  0  0  0  0  0 11 |  i = Umbria
+Vous trouverez également ci-dessous la matrice de confusion :
+
+| | North-Apulia | Calabria | South-Apulia | Sicily | Inland-Sardinia | Coast-Sardinia | East-Liguria | West-Liguria | Umbria |
+|---|---|---|---|---|---|---|---|---|---|
+| North-Apulia | 5 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| Calabria | 0 | 12 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
+| South-Apulia | 0 | 0 | 48 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Sicily | 0 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 0 |
+| Inland-Sardinia | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 0 | 0 |
+| Coast-Sardinia | 0 | 0 | 0 | 0 | 0 | 8 | 0 | 0 | 0 |
+| East-Liguria | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 0 | 1 |
+| West-Liguria | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 12 | 0 |
+| Umbria | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 11 |
 
 #### C4.5
+Avec l'algorithme C4.5, on trouve un taux de bonne classification de 87,5%, ce qui est nettement inférieur au deux algorithmes testés précédemment.
 
-Correctly Classified Instances         119               87.5    %
-Incorrectly Classified Instances        17               12.5    %
-
-a  b  c  d  e  f  g  h  i   <-- classified as
-4  0  1  1  0  0  0  0  0 |  a = North-Apulia
-0  8  3  3  0  0  0  0  0 |  b = Calabria
-0  0 47  1  0  0  0  0  0 |  c = South-Apulia
-0  1  3  5  0  0  0  0  0 |  d = Sicily
-0  0  0  0 15  1  0  0  0 |  e = Inland-Sardinia
-0  0  0  0  0  8  0  0  0 |  f = Coast-Sardinia
-0  0  0  0  0  0 10  1  1 |  g = East-Liguria
-0  0  0  0  1  0  0 11  0 |  h = West-Liguria
-0  0  0  0  0  0  0  0 11 |  i = Umbria
-
-![Image](olive_area_j48.png)
+Vous trouverez ci-dessous l'arbre de décision qui a permis de classer les huiles d'olives en fonction des zones.
+![Image](olive-area-j48.png)
 
 #### SVMs
-
-Correctly Classified Instances          49               36.0294 %
-Incorrectly Classified Instances        87               63.9706 %
-
-a  b  c  d  e  f  g  h  i   <-- classified as
-0  0  6  0  0  0  0  0  0 |  a = North-Apulia
-0  0 14  0  0  0  0  0  0 |  b = Calabria
-0  0 48  0  0  0  0  0  0 |  c = South-Apulia
-0  0  9  0  0  0  0  0  0 |  d = Sicily
-0  0 16  0  0  0  0  0  0 |  e = Inland-Sardinia
-0  0  8  0  0  0  0  0  0 |  f = Coast-Sardinia
-0  0 12  0  0  0  0  0  0 |  g = East-Liguria
-0  0 12  0  0  0  0  0  0 |  h = West-Liguria
-0  0 10  0  0  0  0  0  1 |  i = Umbria
+Pour la classification SVM, nous obtenons le taux le plus bas de bonne classification : 36,02% soit plus de la moitié des huiles qui ont mal été classées.
 
 ### Olive (Région)
+Ici, nous voulons classer les huiles en 3 régions différentes.
+
 #### Naive Bayes
+Avec ce premier algorithme, nous obtenons déjà un très bon taux de classification à 99,26%, soit une erreur seulement.
 
-Correctly Classified Instances         135               99.2647 %
-Incorrectly Classified Instances         1                0.7353 %
+Vous trouverez ci-dessous la matrice de confusion.
 
-a  b  c   <-- classified as
-77  0  0 |  a = South
-0 23  1 |  b = Sardinia
-0  0 35 |  c = North
+| | South | Sardinia | North |
+|---|---|---|---|
+| South | 77 | 0 | 0 |
+| Sardinia | 0 | 23 | 1 |
+| North | 0 | 0 | 35 |
 
 #### k-NN
-
+Ici, pour k=1, on obtient un taux de bonne classification parfait à 0%. En effet, toutes les huiles ont correctement été classées.  
+Voici la commande qui nous a permis d'obtenir ce résultat :  
 weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
 
-Correctly Classified Instances         136              100      %
-Incorrectly Classified Instances         0                0      %
+Vous trouverez ci-dessous la matrice de confusion.
 
-a  b  c   <-- classified as
-77  0  0 |  a = South
-0 24  0 |  b = Sardinia
-0  0 35 |  c = North
+| | South | Sardinia | North |
+|---|---|---|---|
+| South | 77 | 0 | 0 |
+| Sardinia | 0 | 24 | 0 |
+| North | 0 | 0 | 35 |
 
 #### C4.5
+Avec l'algorithme C4.5, nous trouvons le même taux de bonne classification qu'avec Naive Bayes soit 99,26% (1 erreur).
 
-Correctly Classified Instances         135               99.2647 %
-Incorrectly Classified Instances         1                0.7353 %
+Vous trouverez ci-dessous la matrice de confusion.
 
-  a  b  c   <-- classified as
- 77  0  0 |  a = South
-  0 24  0 |  b = Sardinia
-  0  1 34 |  c = North
+| | South | Sardinia | North |
+|---|---|---|---|
+| South | 77 | 0 | 0 |
+| Sardinia | 0 | 24 | 0 |
+| North | 0 | 1 | 34 |
 
-![Image](olive_region_j48.png)
+Vous trouverez également l'abre de décision ci-dessous.
+![Image](olive-region-j48.png)
+
 #### SVMs
+Cet algorithme nous offre le plus grand nombre d'erreurs puisque le taux de bonne classification est de 57,35% seulement.
 
-Correctly Classified Instances          78               57.3529 %
-Incorrectly Classified Instances        58               42.6471 %
+En effet, comme nous pouvons le constater avec la matrice de décision ci-dessous, toutes les huiles exceptée une ont été classées comme appartenant à la région Sud.
 
-a  b  c   <-- classified as
-77  0  0 |  a = South
-24  0  0 |  b = Sardinia
-34  0  1 |  c = North
+| | South | Sardinia | North |
+|---|---|---|---|
+| South | 77 | 0 | 0 |
+| Sardinia | 24 | 0 | 0 |
+| North | 34 | 0 | 1 |
 
 ### Segment
 #### Naive Bayes
