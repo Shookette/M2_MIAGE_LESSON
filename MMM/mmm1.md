@@ -1,4 +1,4 @@
-# Android - Un système d'exploiration pour appareils mobiles
+ # Android - Un système d'exploiration pour appareils mobiles
 
 ## I - Présentation
 ### Contexte
@@ -57,3 +57,72 @@
 
 * Les vues qui permettent de construire une application (widget + layout)
 * Les content Providers autorisent l'application à accéder à des données d'autre applications
+
+# Grands Principes
+* Chaque vue est une application (un Activity)
+    * côté vues :
+        * développement des IHM statiques en XML
+        * développement des IHM dynamiques en Java
+    * côté métier :
+        * développement essentiellement en JAVA et XML (exceptionnellement C / C++ )
+* Les vues communiquent par message asynchrone (Intent)
+
+## Cycle de vie des Activity
+3 états :
+* Active (affiché à l'écran)
+* En pause (visible mais non accessible à l'utilisateur e.G en cas de pop up)
+* Arréte (non visible, mais état maintenu tel quel)
+
+Le système peut décider de détruire et de relancer les activités arrêtées (eg pour libére de la mémoire).
+
+Il y a 3 cycles à prendre en compte :
+* Le cycle de l'application (onCreate() - onDestroy())
+* Le cycle visible (onStart() - onStop())
+* le cycle actif (onResume() - onPause())
+
+
+* onCreate(Bundle state) démare l'application
+* onRestart() relance l'application après un arrêt
+* onStart() relance l'application après un arrêt
+* onResume() relance l'application
+* onDestroy()
+* onStop()
+* onPause()
+
+## Composant "Service"
+
+* Pas de vue
+* Processus en tache de fond qui offre des "capacities"
+* Communique à partir des intent
+* Dérive de "Service"
+
+## Composant "BroadcastReceiver"
+
+* Recoit et traite les messages broadcasté à l'ensemble des applications
+* Peut émettre les messages
+* Pas de vues
+    * ... mais peut en démarer
+    * ... ou intéragir avec le "NotificationManager"
+* Dérive de "BroadcastReceiver"
+
+## Composant "Content Providers"
+
+* Rend disponible des données d'une application à d'autres applications (e.g carnet d'adresses)
+    * données stockées dans le système de fichiers local
+    * données stockées dans une base SQLite
+    * ou tout autre source de données (e.g. Service web)
+* déclare des points d'entrées pour les données
+* s'interface avec un "ContentResolver"
+* les autres applications interrogent le "ContentResolver"
+
+## Mécanique des "Intent"
+* Permet d'établir des liens en temps-réel entre les applications
+    * En respectant les types des intent (broadcast intent nest transmis qu'aux broadcast receivers, ...)
+    * Les "intent" peuvent viser
+        * Une appli particulière (Intent Explicite)
+        * Une appli non nommées (Intent Implicites)
+
+### Activity
+Une Activity se démarre en envoyant un intent avec la méthode :
+* startActivity(Intent, ...)
+* startActivityForResult(Intent, ...)
