@@ -196,8 +196,44 @@ a    b    c    d    e    f   <-- classified as
 ### Spam
 #### Naive Bayes
 
+Correctly Classified Instances        2976               81.112  %
+Incorrectly Classified Instances       693               18.888  %
+
+weka.classifiers.bayes.NaiveBayes
+
+a    b   <-- classified as
+1838  639 |    a = 0
+54 1138 |    b = 1
+
 #### k-NN
+
+Correctly Classified Instances        3383               92.205  %
+Incorrectly Classified Instances       286                7.795  %
+
+weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+
+a    b   <-- classified as
+2335  142 |    a = 0
+144 1048 |    b = 1
 
 #### C4.5
 
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Correctly Classified Instances        3440               93.7585 %
+Incorrectly Classified Instances       229                6.2415 %
+
+  a    b   <-- classified as
+ 2368  109 |    a = 0
+  120 1072 |    b = 1
+
 #### SVMs
+
+Correctly Classified Instances        3082               84.0011 %
+Incorrectly Classified Instances       587               15.9989 %
+
+weka.classifiers.functions.LibSVM -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1
+
+a    b   <-- classified as
+2272  205 |    a = 0
+382  810 |    b = 1
