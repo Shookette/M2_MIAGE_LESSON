@@ -114,7 +114,7 @@ Incorrectly Classified Instances       201               26.1719 %
  408  92 |   a = 0
  109 159 |   b = 1
 
-![Image](diabete_j48.png)
+![Image](diabete-j48.png)
 
 #### SVMs
 

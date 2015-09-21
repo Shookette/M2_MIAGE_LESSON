@@ -203,18 +203,113 @@ Avec ce paramètre, nous obtenons un taux de bonne classification de 65,36% (soi
 
 ### Diabetes
 #### Naive Bayes
+Nous obtenons ici avec Naive Bayes le meilleur taux de classification pour ce jeu de données avec 75,65%.
+
+Voici la formule utilisée :  
+weka.classifiers.bayes.NaiveBayes
+
+Vous trouverez ci-dessous la matrice de confusion.
+
+|| Négatif | Positif |
+|---|---|---|
+| Négatif | **420** | 80 |
+| Positif | 107 | **161** |
+
+Malgré qu'il s'agisse du meilleur taux de bonne classification pour ce jeu de données, ce taux est très inférieur aux jeux de données de la première partie. En effet, ici nous n'avons que deux classes et aucun autre paramètre qui permettrait de mieux classer les éléments (comme l'âge ou le sexe ici par exemple).
 
 #### k-NN
+Ici avec l'algorithme des plus proches voisins et k=7, nous obtenons un taux de classification très proche de celui trouvé juste avant avec Naive Bayes à 75,26%.
+
+Voici la formule utilisée :  
+weka.classifiers.lazy.IBk -K 7 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+
+Vous trouverez ci-dessous la matrice de confusion.
+
+|| Négatif | Positif |
+|---|---|---|
+| Négatif | **429** | 71 |
+| Positif | 119 | **149** |
 
 #### C4.5
+Nous observons ici une légère baisse du taux de bonne classification avec 73,82% des éléments classés correctement.
+
+Vous trouverez ci-dessous l'arbre de décision obtenu avec cet algorithme.
+![Image](diabete-j48.png)
 
 #### SVMs
+Ici, nous observons le plus faible taux de bonne classification avec seulement 65,10%.
+
+Voici ci-dessous la matrice de confusion.
+
+|| Négatif | Positif |
+|---|---|---|
+| Négatif | **500** | 0 |
+| Positif | 268 | **0** |
+
+On remarque ici avec la matrice que toutes les erreurs viennent du fait que tous les éléments ont été classées comme étant négatifs au diabète.
+En effet, comme il n'y a pas d'autre paramètre pour déterminer les classes, la classification est plus aléatoire.
 
 ### Satimage
 #### Naive Bayes
 
+weka.classifiers.bayes.NaiveBayes
+
+Correctly Classified Instances        3528               79.549  %
+Incorrectly Classified Instances       907               20.451  %
+
+a   b   c   d   e   f   <-- classified as
+848   1  35   0 188   0 |   a = 1
+15 428   0   3  30   3 |   b = 2
+17   0 858  80   1   5 |   c = 3
+7   0  63 263  10  72 |   d = 4
+54   3   0  14 347  52 |   e = 5
+0   0   8 198  48 784 |   f = 7
+
 #### k-NN
+
+
+K = 3
+
+weka.classifiers.lazy.IBk -K 3 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+
+Correctly Classified Instances        4025               90.7554 %
+Incorrectly Classified Instances       410                9.2446 %
+
+a    b    c    d    e    f   <-- classified as
+1045    1   17    2    7    0 |    a = 1
+1  469    0    2    6    1 |    b = 2
+5    1  903   43    0    9 |    c = 3
+1    5   68  288    5   48 |    d = 4
+18    3    1    7  411   30 |    e = 5
+0    0   26   76   27  909 |    f = 7
+
 
 #### C4.5
 
+Correctly Classified Instances        3821               86.1556 %
+Incorrectly Classified Instances       614               13.8444 %
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+a    b    c    d    e    f   <-- classified as
+1026    5   19    4   17    1 |    a = 1
+5  447    1    5   17    4 |    b = 2
+8    2  867   60    1   23 |    c = 3
+9    3   67  221   13  102 |    d = 4
+35    7    5   12  372   39 |    e = 5
+3    2   29   87   29  888 |    f = 7
+
 #### SVMs
+
+Correctly Classified Instances        1111               25.0507 %
+Incorrectly Classified Instances      3324               74.9493 %
+
+weka.classifiers.functions.LibSVM -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1
+
+a    b    c    d    e    f   <-- classified as
+1072    0    0    0    0    0 |    a = 1
+479    0    0    0    0    0 |    b = 2
+961    0    0    0    0    0 |    c = 3
+415    0    0    0    0    0 |    d = 4
+470    0    0    0    0    0 |    e = 5
+999    0    0    0    0   39 |    f = 7
