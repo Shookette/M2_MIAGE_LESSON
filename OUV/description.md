@@ -1,5 +1,5 @@
 # Système de gestion pour les associations
-> Anne-Sophie Balestra & Jérémy Viallatte 
+> Anne-Sophie Balestra & Jérémy Viallatte
 
 ## 1. Description du projet
 Pour ce projet, nous souhaitons réaliser une application qui permettent à différents types d’associations de tout gérer simplement au même endroit.  
@@ -12,8 +12,8 @@ Cette application serait donc pour des associations qui existent déjà et qui s
 
 ## 3. Budget
 ### Coût du projet
-Afin de mener à bien notre projet, nous devons louer un serveur (qui pourra surpporter un certains nombre d'associations).  
-Nous devons également acheter un nombre de domaine (puisqu'il s'agit d'une application web).
+Afin de mener à bien notre projet, nous devons louer un ou plusieurs serveur(s) (afin de pouvoir supporter un certains nombre d'associations).  
+Nous devons également acheter un nom de domaine (puisqu'il s'agit d'une application web).
 
 ### Rentabilisation
 Afin de rentabiliser notre projet, nous souhaitons proposer aux associations deux modes d'utilisation :
