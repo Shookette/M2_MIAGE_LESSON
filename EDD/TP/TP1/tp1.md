@@ -242,7 +242,7 @@ Ici, nous observons le plus faible taux de bonne classification avec seulement 6
 Voici ci-dessous la matrice de confusion.
 
 || Négatif | Positif |
-|---|---|---|
+|---|---|---|gi
 | Négatif | **500** | 0 |
 | Positif | 268 | **0** |
 
