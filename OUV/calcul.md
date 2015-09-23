@@ -14,6 +14,7 @@
 * Framework Bootstrap Twitter pour l'interface graphisme et le dynamisme JavaScript
 * Google Graph (ou autres outils de graphiques) pour l'affichage de statistiques
 * Système de gestion de l'intégration continue
+* Google Adsense (Système de publicités rémunérées par Google)
 
 ## Définition du projet
 ### But
@@ -53,14 +54,14 @@ Deux modes pour rentabiliser le projet :
 ### Tests en fonction des utilisateurs
 >*1 utilisateur = 1 association*
 
-Sur une base de 100 utilisateurs (Premium à 7€, Rentabilité d'environ 3€/mois par association grâce aux publicités) :  
+Sur une base de 100 utilisateurs (Premium à 7€, Rentabilité d'environ 1€/mois par association grâce aux publicités) :  
 
 ||Premium|Gratuit|TOTAL|
 |---|---|---|---|
 |Nombre d'utilisateurs|65|35|100|
 |Prix/Mois|7|0|-|
-|Rentabilité Publicités|0|3|-|
-|Total/Mois|455|105|**560**|
+|Rentabilité Publicités|0|1|-|
+|Total/Mois|455|35|**490**|
 
 ## Point de rentabilité du projet
 Nous serons donc en déficit sur les mois de développement et plusieurs mois qui suivent, puis le temps de travail sera diminuer (uniquement des maintenances) et donc le projet devrait devenir rentable dans les mois qui suivent la fin du développement.
