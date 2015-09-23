@@ -27,7 +27,8 @@ Le but avec le temps que nous consacrerons pendant la formation est d'arriver à
 Enfin, et cette phase se fera bien après la fin du projet dans le cadre de la formation, nous voulons proposer cette application sur une plateforme mobile (certainement Android en priorité).
 
 ## 4. Activités à réaliser
-Dans cette partie, nous allons vous présenter les différentes activités que nous allons réaliser (en dehors du développement en lui-même) :* Etude de marché auprès des associations
+Dans cette partie, nous allons vous présenter les différentes activités que nous allons réaliser (en dehors du développement en lui-même) :
+* Etude de marché auprès des associations
 * Définition des différents types d'associations que nous voulons traiter (protection animale, sportive...)
 * Demande des besoins à des membres d'associations en fonction de leur type
 * Recoupement des besoins pour un tronc commum dans l'application
