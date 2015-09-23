@@ -18,6 +18,7 @@
 ## Définition du projet
 ### But
 Développer une application web qui permette à des associations de gérer l'interne (membres, dons, statistiques...).  
+### Problématique
 Mais, beaucoup de types d'associations différentes (protection animale, sportive, parents d'élèves...) donc beaucoup de besoins différents.  
 Il faut donc développer une application suffisamment générique pour répondre aux différents types d'associations et suffisamment spécifique pour avoir une application qui réponde uniquement aux besoins de l'association.
 
