@@ -19,6 +19,7 @@
 ## Définition du projet
 ### But
 Développer une application web qui permette à des associations de gérer l'interne (membres, dons, statistiques...).  
+
 ### Problématique
 Mais, beaucoup de types d'associations différentes (protection animale, sportive, parents d'élèves...) donc beaucoup de besoins différents.  
 Il faut donc développer une application suffisamment générique pour répondre aux différents types d'associations et suffisamment spécifique pour avoir une application qui réponde uniquement aux besoins de l'association.
@@ -32,7 +33,7 @@ Développer un tronc commun puis des templates/modèles pour différents types d
 * Demande des besoins à des membres d'associations en fonction de leur type
 * Recoupement des besoins pour un tronc commum dans l'application
 * Estimation du temps de développement
-* Rédaction de documents (cahier des charges, document de spécifications techniques...)
+* Rédaction de documents (cahier des charges, document de spécifications techniques, documents d'information sur l'application...)
 * Documentation du code
 * Tutoriels pour les utlisateurs (vidéos explicatives, documents texte...)
 
@@ -40,7 +41,11 @@ Développer un tronc commun puis des templates/modèles pour différents types d
 L'application sera de type CRUDL. Les fonctionnalités plus approfondies seront détaillées une fois les étude de marché et les demandes des besoins auprès des associations faites.
 
 ## Temps de travail
-Dans le cadre de la formation, le temps disponible pour ce projet sera de 10h/homme par semaine en moyenne (il pourra varier après la formation).  
+Dans le cadre de la formation, le temps disponible pour ce projet sera de 10h/homme par semaine en moyenne (il pourra varier après la formation, vers fin février).  
+
+Vous trouverez également ci-dessous une répartition des tâches organisées dans le temps. Les dates ne sont pas indiquées, il s'agit surtout de définir un ordre dans la réalisation de notre projet. Il faut cependant prendre en compte que ce diagramme se réalise pour les 6 prochains mois et que la maintenance sera prolongée par la suite (avec également des possibilités d'évolutions comme une application Android).
+
+![Image](gantt.png)
 
 ## Budget Humain
 Nous nous basons sur une base à 16€/heure en brut pour chaque membre de l'équipe.
