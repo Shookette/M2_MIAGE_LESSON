@@ -1,0 +1,28 @@
+<Schema name="SchemaTest">
+  <Cube name="Adhesion" visible="true" cache="true" enabled="true">
+    <Table name="BASE_MONDIAL_is_member" alias="">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="Country" name="Geographie">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tous Pays" primaryKey="Code">
+        <Table name="BASE_MONDIAL_country">
+        </Table>
+        <Level name="Continent" visible="true" column="Continent" uniqueMembers="true">
+        </Level>
+        <Level name="Pays" visible="true" column="Name" uniqueMembers="true">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="Organization" name="Organisation">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Toutes organisations" primaryKey="Abbreviation">
+        <Table name="BASE_MONDIAL_organization" alias="">
+        </Table>
+        <Level name="Organisation" visible="true" column="Name" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Type de membre">
+    </Dimension>
+    <Measure name="Nombre adhesions" column="Organization" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
